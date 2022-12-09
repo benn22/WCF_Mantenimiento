@@ -57,6 +57,9 @@ namespace Cliente_WCF_Mantenimiento
                     lblUnidad.Text = "Moto";
                 }
 
+
+                dtgVehiculos.DataSource = objServiceVehiculo.ListarVehiculosFechas(txtCod.Text.Trim(), dtpFecIni.Value.Date, dtpFecFin.Value.Date);
+                lblRegistros.Text = dtgVehiculos.Rows.Count.ToString();
             }
             catch (Exception ex)
             {

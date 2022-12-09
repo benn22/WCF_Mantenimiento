@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dtgVendedor = new System.Windows.Forms.DataGridView();
+            this.dtgVehiculos = new System.Windows.Forms.DataGridView();
             this.Fec_Mant_Inic = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fec_Mant_Fin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TipoMantenimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,28 +50,28 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lblModelo = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgVendedor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgVehiculos)).BeginInit();
             this.SuspendLayout();
             // 
-            // dtgVendedor
+            // dtgVehiculos
             // 
-            this.dtgVendedor.AllowUserToAddRows = false;
-            this.dtgVendedor.AllowUserToDeleteRows = false;
-            this.dtgVendedor.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtgVendedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgVendedor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dtgVehiculos.AllowUserToAddRows = false;
+            this.dtgVehiculos.AllowUserToDeleteRows = false;
+            this.dtgVehiculos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgVehiculos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgVehiculos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Fec_Mant_Inic,
             this.Fec_Mant_Fin,
             this.TipoMantenimiento,
             this.idMecanico});
-            this.dtgVendedor.Location = new System.Drawing.Point(34, 109);
-            this.dtgVendedor.Name = "dtgVendedor";
-            this.dtgVendedor.ReadOnly = true;
-            this.dtgVendedor.RowHeadersVisible = false;
-            this.dtgVendedor.RowTemplate.Height = 25;
-            this.dtgVendedor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgVendedor.Size = new System.Drawing.Size(916, 301);
-            this.dtgVendedor.TabIndex = 34;
+            this.dtgVehiculos.Location = new System.Drawing.Point(34, 109);
+            this.dtgVehiculos.Name = "dtgVehiculos";
+            this.dtgVehiculos.ReadOnly = true;
+            this.dtgVehiculos.RowHeadersVisible = false;
+            this.dtgVehiculos.RowTemplate.Height = 25;
+            this.dtgVehiculos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgVehiculos.Size = new System.Drawing.Size(916, 301);
+            this.dtgVehiculos.TabIndex = 34;
             // 
             // Fec_Mant_Inic
             // 
@@ -253,7 +253,7 @@
             this.ClientSize = new System.Drawing.Size(989, 479);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.lblModelo);
-            this.Controls.Add(this.dtgVendedor);
+            this.Controls.Add(this.dtgVehiculos);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
@@ -275,7 +275,7 @@
             this.Name = "VehiculoFechas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mant. efectuados por Vehiculos  entre Fechas";
-            ((System.ComponentModel.ISupportInitialize)(this.dtgVendedor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgVehiculos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -283,7 +283,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dtgVendedor;
+        private System.Windows.Forms.DataGridView dtgVehiculos;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
