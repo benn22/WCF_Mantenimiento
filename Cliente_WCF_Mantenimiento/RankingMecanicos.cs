@@ -14,5 +14,23 @@ namespace Cliente_WCF_Mantenimiento
         {
             InitializeComponent();
         }
+
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ProxyRank.ServicioEstadisticaClient objServiceEstadistica = new ProxyRank.ServicioEstadisticaClient();
+                dtgDatos.DataSource = objServiceEstadistica.RankingMecanicoMantAño(Convert.ToInt16(txtTime.Text.Trim()), Convert.ToInt16(cboTop.SelectedItem));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error");
+            }
+        }
+
+        private void RankingMecanicos_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

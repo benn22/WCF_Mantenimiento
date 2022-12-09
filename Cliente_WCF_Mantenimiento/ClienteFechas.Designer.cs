@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.dtgCliente = new System.Windows.Forms.DataGridView();
+            this.idVehiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fec_Mant_Inic = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fec_Mant_Fin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idMecanico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EstadoMecanico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -48,11 +53,6 @@
             this.lblEstado = new System.Windows.Forms.Label();
             this.lblDni = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.idVehiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fec_Mant_Inic = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fec_Mant_Fin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idMecanico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EstadoMecanico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtgCliente)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,6 +76,41 @@
             this.dtgCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgCliente.Size = new System.Drawing.Size(916, 301);
             this.dtgCliente.TabIndex = 50;
+            // 
+            // idVehiculo
+            // 
+            this.idVehiculo.DataPropertyName = "idVehiculo";
+            this.idVehiculo.HeaderText = "Vehiculo";
+            this.idVehiculo.Name = "idVehiculo";
+            this.idVehiculo.ReadOnly = true;
+            // 
+            // Fec_Mant_Inic
+            // 
+            this.Fec_Mant_Inic.DataPropertyName = "Fec_Mant_Inic";
+            this.Fec_Mant_Inic.HeaderText = "Inicio Mant";
+            this.Fec_Mant_Inic.Name = "Fec_Mant_Inic";
+            this.Fec_Mant_Inic.ReadOnly = true;
+            // 
+            // Fec_Mant_Fin
+            // 
+            this.Fec_Mant_Fin.DataPropertyName = "Fec_Mant_Fin";
+            this.Fec_Mant_Fin.HeaderText = "Fin Mant.";
+            this.Fec_Mant_Fin.Name = "Fec_Mant_Fin";
+            this.Fec_Mant_Fin.ReadOnly = true;
+            // 
+            // idMecanico
+            // 
+            this.idMecanico.DataPropertyName = "idMecanico";
+            this.idMecanico.HeaderText = "IdMecanico Mant.";
+            this.idMecanico.Name = "idMecanico";
+            this.idMecanico.ReadOnly = true;
+            // 
+            // EstadoMecanico
+            // 
+            this.EstadoMecanico.DataPropertyName = "EstadoMecanico";
+            this.EstadoMecanico.HeaderText = "Estado Mecanico";
+            this.EstadoMecanico.Name = "EstadoMecanico";
+            this.EstadoMecanico.ReadOnly = true;
             // 
             // label8
             // 
@@ -239,41 +274,6 @@
             this.label13.TabIndex = 51;
             this.label13.Text = "DNI:";
             // 
-            // idVehiculo
-            // 
-            this.idVehiculo.DataPropertyName = "idVehiculo";
-            this.idVehiculo.HeaderText = "Vehiculo";
-            this.idVehiculo.Name = "idVehiculo";
-            this.idVehiculo.ReadOnly = true;
-            // 
-            // Fec_Mant_Inic
-            // 
-            this.Fec_Mant_Inic.DataPropertyName = "Fec_Mant_Inic";
-            this.Fec_Mant_Inic.HeaderText = "Inicio Mant";
-            this.Fec_Mant_Inic.Name = "Fec_Mant_Inic";
-            this.Fec_Mant_Inic.ReadOnly = true;
-            // 
-            // Fec_Mant_Fin
-            // 
-            this.Fec_Mant_Fin.DataPropertyName = "Fec_Mant_Fin";
-            this.Fec_Mant_Fin.HeaderText = "Fin Mant.";
-            this.Fec_Mant_Fin.Name = "Fec_Mant_Fin";
-            this.Fec_Mant_Fin.ReadOnly = true;
-            // 
-            // idMecanico
-            // 
-            this.idMecanico.DataPropertyName = "idMecanico";
-            this.idMecanico.HeaderText = "IdMecanico Mant.";
-            this.idMecanico.Name = "idMecanico";
-            this.idMecanico.ReadOnly = true;
-            // 
-            // EstadoMecanico
-            // 
-            this.EstadoMecanico.DataPropertyName = "EstadoMecanico";
-            this.EstadoMecanico.HeaderText = "Estado Mecanico";
-            this.EstadoMecanico.Name = "EstadoMecanico";
-            this.EstadoMecanico.ReadOnly = true;
-            // 
             // ClienteFechas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -299,8 +299,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtCod);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ClienteFechas";
-            this.Text = "ClienteFechas";
+            this.Text = "Mant. efectuados por Clientes  entre Fechas";
             this.Load += new System.EventHandler(this.ClienteFechas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgCliente)).EndInit();
             this.ResumeLayout(false);

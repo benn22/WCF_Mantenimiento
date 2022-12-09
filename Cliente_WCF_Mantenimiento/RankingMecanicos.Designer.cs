@@ -32,6 +32,8 @@
             this.btnConsultar = new System.Windows.Forms.Button();
             this.cboTop = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtTime = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgDatos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,7 +44,7 @@
             this.dtgDatos.AllowUserToResizeRows = false;
             this.dtgDatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgDatos.Location = new System.Drawing.Point(30, 48);
+            this.dtgDatos.Location = new System.Drawing.Point(30, 57);
             this.dtgDatos.Name = "dtgDatos";
             this.dtgDatos.ReadOnly = true;
             this.dtgDatos.RowHeadersVisible = false;
@@ -53,12 +55,13 @@
             // 
             // btnConsultar
             // 
-            this.btnConsultar.Location = new System.Drawing.Point(378, 19);
+            this.btnConsultar.Location = new System.Drawing.Point(451, 19);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(109, 23);
             this.btnConsultar.TabIndex = 6;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
             // cboTop
             // 
@@ -83,17 +86,40 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Seleccione Top:";
             // 
+            // txtTime
+            // 
+            this.txtTime.Location = new System.Drawing.Point(331, 20);
+            this.txtTime.Name = "txtTime";
+            this.txtTime.Size = new System.Drawing.Size(71, 23);
+            this.txtTime.TabIndex = 39;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(252, 23);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(73, 15);
+            this.label2.TabIndex = 38;
+            this.label2.Text = "Ingrese Año:";
+            // 
             // RankingMecanicos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(602, 391);
+            this.Controls.Add(this.txtTime);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.dtgDatos);
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.cboTop);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "RankingMecanicos";
-            this.Text = "RankingMecanicos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Ranking de Mecanicos - Años";
+            this.Load += new System.EventHandler(this.RankingMecanicos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgDatos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -106,5 +132,7 @@
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.ComboBox cboTop;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtTime;
+        private System.Windows.Forms.Label label2;
     }
 }

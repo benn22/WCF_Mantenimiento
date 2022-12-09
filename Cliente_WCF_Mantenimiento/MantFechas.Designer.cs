@@ -28,7 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dtgVendedor = new System.Windows.Forms.DataGridView();
+            this.dtgMant = new System.Windows.Forms.DataGridView();
+            this.idMantenimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idVehiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Num_Factura = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EstadoFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fec_fac = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label8 = new System.Windows.Forms.Label();
             this.lblRegistros = new System.Windows.Forms.Label();
             this.btnConsultar = new System.Windows.Forms.Button();
@@ -36,95 +41,30 @@
             this.dtpFecIni = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.idMantenimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idVehiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Num_Factura = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EstadoFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fec_fac = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgVendedor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgMant)).BeginInit();
             this.SuspendLayout();
             // 
-            // dtgVendedor
+            // dtgMant
             // 
-            this.dtgVendedor.AllowUserToAddRows = false;
-            this.dtgVendedor.AllowUserToDeleteRows = false;
-            this.dtgVendedor.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtgVendedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgVendedor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dtgMant.AllowUserToAddRows = false;
+            this.dtgMant.AllowUserToDeleteRows = false;
+            this.dtgMant.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgMant.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgMant.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idMantenimiento,
             this.idVehiculo,
             this.Num_Factura,
             this.EstadoFactura,
             this.fec_fac});
-            this.dtgVendedor.Location = new System.Drawing.Point(34, 87);
-            this.dtgVendedor.Name = "dtgVendedor";
-            this.dtgVendedor.ReadOnly = true;
-            this.dtgVendedor.RowHeadersVisible = false;
-            this.dtgVendedor.RowTemplate.Height = 25;
-            this.dtgVendedor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgVendedor.Size = new System.Drawing.Size(916, 301);
-            this.dtgVendedor.TabIndex = 71;
-            this.dtgVendedor.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgVendedor_CellContentClick);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(774, 421);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(58, 15);
-            this.label8.TabIndex = 70;
-            this.label8.Text = "Registros:";
-            // 
-            // lblRegistros
-            // 
-            this.lblRegistros.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblRegistros.Location = new System.Drawing.Point(838, 416);
-            this.lblRegistros.Name = "lblRegistros";
-            this.lblRegistros.Size = new System.Drawing.Size(112, 25);
-            this.lblRegistros.TabIndex = 66;
-            // 
-            // btnConsultar
-            // 
-            this.btnConsultar.Location = new System.Drawing.Point(838, 36);
-            this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(75, 23);
-            this.btnConsultar.TabIndex = 62;
-            this.btnConsultar.Text = "Consultar";
-            this.btnConsultar.UseVisualStyleBackColor = true;
-            // 
-            // dtpFecFin
-            // 
-            this.dtpFecFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFecFin.Location = new System.Drawing.Point(408, 32);
-            this.dtpFecFin.Name = "dtpFecFin";
-            this.dtpFecFin.Size = new System.Drawing.Size(100, 23);
-            this.dtpFecFin.TabIndex = 61;
-            // 
-            // dtpFecIni
-            // 
-            this.dtpFecIni.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFecIni.Location = new System.Drawing.Point(93, 32);
-            this.dtpFecIni.Name = "dtpFecIni";
-            this.dtpFecIni.Size = new System.Drawing.Size(100, 23);
-            this.dtpFecIni.TabIndex = 60;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(364, 36);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 15);
-            this.label3.TabIndex = 59;
-            this.label3.Text = "F. Fin:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(36, 36);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 15);
-            this.label2.TabIndex = 58;
-            this.label2.Text = "F. Inicio:";
+            this.dtgMant.Location = new System.Drawing.Point(34, 87);
+            this.dtgMant.Name = "dtgMant";
+            this.dtgMant.ReadOnly = true;
+            this.dtgMant.RowHeadersVisible = false;
+            this.dtgMant.RowTemplate.Height = 25;
+            this.dtgMant.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgMant.Size = new System.Drawing.Size(916, 301);
+            this.dtgMant.TabIndex = 71;
+            this.dtgMant.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgVendedor_CellContentClick);
             // 
             // idMantenimiento
             // 
@@ -161,12 +101,73 @@
             this.fec_fac.Name = "fec_fac";
             this.fec_fac.ReadOnly = true;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(774, 421);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(58, 15);
+            this.label8.TabIndex = 70;
+            this.label8.Text = "Registros:";
+            // 
+            // lblRegistros
+            // 
+            this.lblRegistros.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblRegistros.Location = new System.Drawing.Point(838, 416);
+            this.lblRegistros.Name = "lblRegistros";
+            this.lblRegistros.Size = new System.Drawing.Size(112, 25);
+            this.lblRegistros.TabIndex = 66;
+            // 
+            // btnConsultar
+            // 
+            this.btnConsultar.Location = new System.Drawing.Point(838, 36);
+            this.btnConsultar.Name = "btnConsultar";
+            this.btnConsultar.Size = new System.Drawing.Size(75, 23);
+            this.btnConsultar.TabIndex = 62;
+            this.btnConsultar.Text = "Consultar";
+            this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
+            // 
+            // dtpFecFin
+            // 
+            this.dtpFecFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFecFin.Location = new System.Drawing.Point(408, 32);
+            this.dtpFecFin.Name = "dtpFecFin";
+            this.dtpFecFin.Size = new System.Drawing.Size(100, 23);
+            this.dtpFecFin.TabIndex = 61;
+            // 
+            // dtpFecIni
+            // 
+            this.dtpFecIni.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFecIni.Location = new System.Drawing.Point(93, 32);
+            this.dtpFecIni.Name = "dtpFecIni";
+            this.dtpFecIni.Size = new System.Drawing.Size(100, 23);
+            this.dtpFecIni.TabIndex = 60;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(364, 36);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(38, 15);
+            this.label3.TabIndex = 59;
+            this.label3.Text = "F. Fin:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(36, 36);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(51, 15);
+            this.label2.TabIndex = 58;
+            this.label2.Text = "F. Inicio:";
+            // 
             // MantFechas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1018, 510);
-            this.Controls.Add(this.dtgVendedor);
+            this.Controls.Add(this.dtgMant);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.lblRegistros);
             this.Controls.Add(this.btnConsultar);
@@ -174,16 +175,20 @@
             this.Controls.Add(this.dtpFecIni);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "MantFechas";
-            this.Text = "MantFechas";
-            ((System.ComponentModel.ISupportInitialize)(this.dtgVendedor)).EndInit();
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "    Mant. efectuados pendientes de Pago";
+            ((System.ComponentModel.ISupportInitialize)(this.dtgMant)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView dtgVendedor;
+        private System.Windows.Forms.DataGridView dtgMant;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lblRegistros;
         private System.Windows.Forms.Button btnConsultar;

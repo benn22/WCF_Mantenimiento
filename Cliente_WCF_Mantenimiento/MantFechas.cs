@@ -19,5 +19,19 @@ namespace Cliente_WCF_Mantenimiento
         {
 
         }
+
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ProxyMant.MantenimientoClient objServiceMat = new ProxyMant.MantenimientoClient();
+                dtgMant.DataSource = objServiceMat.ListarMantenimientoFechas(dtpFecIni.Value.Date, dtpFecFin.Value.Date);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error: " + ex.Message, "Error");
+            }
+        }
     }
 }

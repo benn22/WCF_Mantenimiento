@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.dtgVendedor = new System.Windows.Forms.DataGridView();
+            this.Fec_Mant_Inic = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fec_Mant_Fin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipoMantenimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idMecanico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -46,10 +50,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lblModelo = new System.Windows.Forms.Label();
-            this.Fec_Mant_Inic = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fec_Mant_Fin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TipoMantenimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idMecanico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtgVendedor)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,6 +72,34 @@
             this.dtgVendedor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgVendedor.Size = new System.Drawing.Size(916, 301);
             this.dtgVendedor.TabIndex = 34;
+            // 
+            // Fec_Mant_Inic
+            // 
+            this.Fec_Mant_Inic.DataPropertyName = "Fec_Mant_Inic";
+            this.Fec_Mant_Inic.HeaderText = "Inicio Mant";
+            this.Fec_Mant_Inic.Name = "Fec_Mant_Inic";
+            this.Fec_Mant_Inic.ReadOnly = true;
+            // 
+            // Fec_Mant_Fin
+            // 
+            this.Fec_Mant_Fin.DataPropertyName = "Fec_Mant_Fin";
+            this.Fec_Mant_Fin.HeaderText = "Fin Mant.";
+            this.Fec_Mant_Fin.Name = "Fec_Mant_Fin";
+            this.Fec_Mant_Fin.ReadOnly = true;
+            // 
+            // TipoMantenimiento
+            // 
+            this.TipoMantenimiento.DataPropertyName = "TipoMantenimiento";
+            this.TipoMantenimiento.HeaderText = "Tipo Mant.";
+            this.TipoMantenimiento.Name = "TipoMantenimiento";
+            this.TipoMantenimiento.ReadOnly = true;
+            // 
+            // idMecanico
+            // 
+            this.idMecanico.DataPropertyName = "idMecanico";
+            this.idMecanico.HeaderText = "IdMecanico Mant.";
+            this.idMecanico.Name = "idMecanico";
+            this.idMecanico.ReadOnly = true;
             // 
             // label8
             // 
@@ -218,34 +246,6 @@
             this.lblModelo.Size = new System.Drawing.Size(112, 20);
             this.lblModelo.TabIndex = 35;
             // 
-            // Fec_Mant_Inic
-            // 
-            this.Fec_Mant_Inic.DataPropertyName = "Fec_Mant_Inic";
-            this.Fec_Mant_Inic.HeaderText = "Inicio Mant";
-            this.Fec_Mant_Inic.Name = "Fec_Mant_Inic";
-            this.Fec_Mant_Inic.ReadOnly = true;
-            // 
-            // Fec_Mant_Fin
-            // 
-            this.Fec_Mant_Fin.DataPropertyName = "Fec_Mant_Fin";
-            this.Fec_Mant_Fin.HeaderText = "Fin Mant.";
-            this.Fec_Mant_Fin.Name = "Fec_Mant_Fin";
-            this.Fec_Mant_Fin.ReadOnly = true;
-            // 
-            // TipoMantenimiento
-            // 
-            this.TipoMantenimiento.DataPropertyName = "TipoMantenimiento";
-            this.TipoMantenimiento.HeaderText = "Tipo Mant.";
-            this.TipoMantenimiento.Name = "TipoMantenimiento";
-            this.TipoMantenimiento.ReadOnly = true;
-            // 
-            // idMecanico
-            // 
-            this.idMecanico.DataPropertyName = "idMecanico";
-            this.idMecanico.HeaderText = "IdMecanico Mant.";
-            this.idMecanico.Name = "idMecanico";
-            this.idMecanico.ReadOnly = true;
-            // 
             // VehiculoFechas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -269,8 +269,12 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtCod);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "VehiculoFechas";
-            this.Text = "VehiculoFechas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Mant. efectuados por Vehiculos  entre Fechas";
             ((System.ComponentModel.ISupportInitialize)(this.dtgVendedor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
