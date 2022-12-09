@@ -32,10 +32,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.lblSueldo = new System.Windows.Forms.Label();
+            this.lblUnidad = new System.Windows.Forms.Label();
             this.lblRegistros = new System.Windows.Forms.Label();
-            this.lblDni = new System.Windows.Forms.Label();
-            this.lblNombres = new System.Windows.Forms.Label();
+            this.lblMarca = new System.Windows.Forms.Label();
+            this.lblTrans = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.dtpFecFin = new System.Windows.Forms.DateTimePicker();
@@ -44,11 +44,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtCod = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblModelo = new System.Windows.Forms.Label();
             this.Fec_Mant_Inic = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fec_Mant_Fin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TipoMantenimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idMecanico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nom_mec = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtgVendedor)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,9 +63,8 @@
             this.Fec_Mant_Inic,
             this.Fec_Mant_Fin,
             this.TipoMantenimiento,
-            this.idMecanico,
-            this.Nom_mec});
-            this.dtgVendedor.Location = new System.Drawing.Point(34, 108);
+            this.idMecanico});
+            this.dtgVendedor.Location = new System.Drawing.Point(34, 109);
             this.dtgVendedor.Name = "dtgVendedor";
             this.dtgVendedor.ReadOnly = true;
             this.dtgVendedor.RowHeadersVisible = false;
@@ -85,7 +85,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(596, 61);
+            this.label7.Location = new System.Drawing.Point(506, 61);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(74, 15);
             this.label7.TabIndex = 29;
@@ -94,19 +94,19 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(402, 61);
+            this.label5.Location = new System.Drawing.Point(302, 61);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(43, 15);
             this.label5.TabIndex = 28;
             this.label5.Text = "Marca:";
             // 
-            // lblSueldo
+            // lblUnidad
             // 
-            this.lblSueldo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblSueldo.Location = new System.Drawing.Point(676, 56);
-            this.lblSueldo.Name = "lblSueldo";
-            this.lblSueldo.Size = new System.Drawing.Size(112, 25);
-            this.lblSueldo.TabIndex = 26;
+            this.lblUnidad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblUnidad.Location = new System.Drawing.Point(586, 56);
+            this.lblUnidad.Name = "lblUnidad";
+            this.lblUnidad.Size = new System.Drawing.Size(112, 20);
+            this.lblUnidad.TabIndex = 26;
             // 
             // lblRegistros
             // 
@@ -116,30 +116,30 @@
             this.lblRegistros.Size = new System.Drawing.Size(112, 25);
             this.lblRegistros.TabIndex = 25;
             // 
-            // lblDni
+            // lblMarca
             // 
-            this.lblDni.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblDni.Location = new System.Drawing.Point(461, 56);
-            this.lblDni.Name = "lblDni";
-            this.lblDni.Size = new System.Drawing.Size(112, 25);
-            this.lblDni.TabIndex = 24;
+            this.lblMarca.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblMarca.Location = new System.Drawing.Point(361, 56);
+            this.lblMarca.Name = "lblMarca";
+            this.lblMarca.Size = new System.Drawing.Size(112, 20);
+            this.lblMarca.TabIndex = 24;
             // 
-            // lblNombres
+            // lblTrans
             // 
-            this.lblNombres.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblNombres.Location = new System.Drawing.Point(120, 56);
-            this.lblNombres.Name = "lblNombres";
-            this.lblNombres.Size = new System.Drawing.Size(250, 25);
-            this.lblNombres.TabIndex = 21;
+            this.lblTrans.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblTrans.Location = new System.Drawing.Point(139, 56);
+            this.lblTrans.Name = "lblTrans";
+            this.lblTrans.Size = new System.Drawing.Size(131, 20);
+            this.lblTrans.TabIndex = 21;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(34, 61);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(80, 15);
+            this.label4.Size = new System.Drawing.Size(99, 15);
             this.label4.TabIndex = 20;
-            this.label4.Text = "Datos Cliente:";
+            this.label4.Text = "Tipo Transmision:";
             // 
             // btnConsultar
             // 
@@ -149,6 +149,7 @@
             this.btnConsultar.TabIndex = 19;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
             // dtpFecFin
             // 
@@ -200,6 +201,23 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "Vehiculo:";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(774, 57);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(51, 15);
+            this.label6.TabIndex = 36;
+            this.label6.Text = "Modelo:";
+            // 
+            // lblModelo
+            // 
+            this.lblModelo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblModelo.Location = new System.Drawing.Point(838, 56);
+            this.lblModelo.Name = "lblModelo";
+            this.lblModelo.Size = new System.Drawing.Size(112, 20);
+            this.lblModelo.TabIndex = 35;
+            // 
             // Fec_Mant_Inic
             // 
             this.Fec_Mant_Inic.DataPropertyName = "Fec_Mant_Inic";
@@ -228,26 +246,21 @@
             this.idMecanico.Name = "idMecanico";
             this.idMecanico.ReadOnly = true;
             // 
-            // Nom_mec
-            // 
-            this.Nom_mec.DataPropertyName = "Nom_mec";
-            this.Nom_mec.HeaderText = "Datos Mecanico";
-            this.Nom_mec.Name = "Nom_mec";
-            this.Nom_mec.ReadOnly = true;
-            // 
             // VehiculoFechas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(989, 479);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lblModelo);
             this.Controls.Add(this.dtgVendedor);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.lblSueldo);
+            this.Controls.Add(this.lblUnidad);
             this.Controls.Add(this.lblRegistros);
-            this.Controls.Add(this.lblDni);
-            this.Controls.Add(this.lblNombres);
+            this.Controls.Add(this.lblMarca);
+            this.Controls.Add(this.lblTrans);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.dtpFecFin);
@@ -270,10 +283,10 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label lblSueldo;
+        private System.Windows.Forms.Label lblUnidad;
         private System.Windows.Forms.Label lblRegistros;
-        private System.Windows.Forms.Label lblDni;
-        private System.Windows.Forms.Label lblNombres;
+        private System.Windows.Forms.Label lblMarca;
+        private System.Windows.Forms.Label lblTrans;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.DateTimePicker dtpFecFin;
@@ -282,10 +295,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtCod;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblModelo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fec_Mant_Inic;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fec_Mant_Fin;
         private System.Windows.Forms.DataGridViewTextBoxColumn TipoMantenimiento;
         private System.Windows.Forms.DataGridViewTextBoxColumn idMecanico;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nom_mec;
     }
 }

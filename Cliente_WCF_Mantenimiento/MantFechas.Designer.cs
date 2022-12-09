@@ -41,7 +41,6 @@
             this.Num_Factura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EstadoFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fec_fac = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nom_cli = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtgVendedor)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,8 +55,7 @@
             this.idVehiculo,
             this.Num_Factura,
             this.EstadoFactura,
-            this.fec_fac,
-            this.Nom_cli});
+            this.fec_fac});
             this.dtgVendedor.Location = new System.Drawing.Point(34, 87);
             this.dtgVendedor.Name = "dtgVendedor";
             this.dtgVendedor.ReadOnly = true;
@@ -66,6 +64,7 @@
             this.dtgVendedor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgVendedor.Size = new System.Drawing.Size(916, 301);
             this.dtgVendedor.TabIndex = 71;
+            this.dtgVendedor.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgVendedor_CellContentClick);
             // 
             // label8
             // 
@@ -162,13 +161,6 @@
             this.fec_fac.Name = "fec_fac";
             this.fec_fac.ReadOnly = true;
             // 
-            // Nom_cli
-            // 
-            this.Nom_cli.DataPropertyName = "Nom_cli";
-            this.Nom_cli.HeaderText = "Datos Cliente";
-            this.Nom_cli.Name = "Nom_cli";
-            this.Nom_cli.ReadOnly = true;
-            // 
             // MantFechas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -204,6 +196,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Num_Factura;
         private System.Windows.Forms.DataGridViewTextBoxColumn EstadoFactura;
         private System.Windows.Forms.DataGridViewTextBoxColumn fec_fac;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nom_cli;
     }
 }

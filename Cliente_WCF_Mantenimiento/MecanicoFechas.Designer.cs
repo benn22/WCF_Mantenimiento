@@ -31,12 +31,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.lblEstado = new System.Windows.Forms.Label();
             this.dtgMecanico = new System.Windows.Forms.DataGridView();
-            this.idMantenimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fec_Mant_Inic = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fec_Mant_Fin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idVehiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TipoUnidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nom_mec = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label8 = new System.Windows.Forms.Label();
             this.lblRegistros = new System.Windows.Forms.Label();
             this.lblNombres = new System.Windows.Forms.Label();
@@ -48,6 +42,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtCod = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.idMantenimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fec_Mant_Inic = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fec_Mant_Fin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idVehiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipoUnidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtgMecanico)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,8 +78,7 @@
             this.Fec_Mant_Inic,
             this.Fec_Mant_Fin,
             this.idVehiculo,
-            this.TipoUnidad,
-            this.Nom_mec});
+            this.TipoUnidad});
             this.dtgMecanico.Location = new System.Drawing.Point(40, 123);
             this.dtgMecanico.Name = "dtgMecanico";
             this.dtgMecanico.ReadOnly = true;
@@ -89,48 +87,6 @@
             this.dtgMecanico.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgMecanico.Size = new System.Drawing.Size(916, 301);
             this.dtgMecanico.TabIndex = 71;
-            // 
-            // idMantenimiento
-            // 
-            this.idMantenimiento.DataPropertyName = "idMantenimiento";
-            this.idMantenimiento.HeaderText = "Mantenimiento";
-            this.idMantenimiento.Name = "idMantenimiento";
-            this.idMantenimiento.ReadOnly = true;
-            // 
-            // Fec_Mant_Inic
-            // 
-            this.Fec_Mant_Inic.DataPropertyName = "Fec_Mant_Inic";
-            this.Fec_Mant_Inic.HeaderText = "Inicio Mant";
-            this.Fec_Mant_Inic.Name = "Fec_Mant_Inic";
-            this.Fec_Mant_Inic.ReadOnly = true;
-            // 
-            // Fec_Mant_Fin
-            // 
-            this.Fec_Mant_Fin.DataPropertyName = "Fec_Mant_Fin";
-            this.Fec_Mant_Fin.HeaderText = "Fin Mant.";
-            this.Fec_Mant_Fin.Name = "Fec_Mant_Fin";
-            this.Fec_Mant_Fin.ReadOnly = true;
-            // 
-            // idVehiculo
-            // 
-            this.idVehiculo.DataPropertyName = "idVehiculo";
-            this.idVehiculo.HeaderText = "Vehiculo";
-            this.idVehiculo.Name = "idVehiculo";
-            this.idVehiculo.ReadOnly = true;
-            // 
-            // TipoUnidad
-            // 
-            this.TipoUnidad.DataPropertyName = "TipoUnidad";
-            this.TipoUnidad.HeaderText = "Tipo Unidad";
-            this.TipoUnidad.Name = "TipoUnidad";
-            this.TipoUnidad.ReadOnly = true;
-            // 
-            // Nom_mec
-            // 
-            this.Nom_mec.DataPropertyName = "Nom_mec";
-            this.Nom_mec.HeaderText = "Cliente";
-            this.Nom_mec.Name = "Nom_mec";
-            this.Nom_mec.ReadOnly = true;
             // 
             // label8
             // 
@@ -226,6 +182,41 @@
             this.label1.TabIndex = 56;
             this.label1.Text = "Mecanico:";
             // 
+            // idMantenimiento
+            // 
+            this.idMantenimiento.DataPropertyName = "idMantenimiento";
+            this.idMantenimiento.HeaderText = "Mantenimiento";
+            this.idMantenimiento.Name = "idMantenimiento";
+            this.idMantenimiento.ReadOnly = true;
+            // 
+            // Fec_Mant_Inic
+            // 
+            this.Fec_Mant_Inic.DataPropertyName = "Fec_Mant_Inic";
+            this.Fec_Mant_Inic.HeaderText = "Inicio Mant";
+            this.Fec_Mant_Inic.Name = "Fec_Mant_Inic";
+            this.Fec_Mant_Inic.ReadOnly = true;
+            // 
+            // Fec_Mant_Fin
+            // 
+            this.Fec_Mant_Fin.DataPropertyName = "Fec_Mant_Fin";
+            this.Fec_Mant_Fin.HeaderText = "Fin Mant.";
+            this.Fec_Mant_Fin.Name = "Fec_Mant_Fin";
+            this.Fec_Mant_Fin.ReadOnly = true;
+            // 
+            // idVehiculo
+            // 
+            this.idVehiculo.DataPropertyName = "idVehiculo";
+            this.idVehiculo.HeaderText = "Vehiculo";
+            this.idVehiculo.Name = "idVehiculo";
+            this.idVehiculo.ReadOnly = true;
+            // 
+            // TipoUnidad
+            // 
+            this.TipoUnidad.DataPropertyName = "TipoUnidad";
+            this.TipoUnidad.HeaderText = "Tipo Unidad";
+            this.TipoUnidad.Name = "TipoUnidad";
+            this.TipoUnidad.ReadOnly = true;
+            // 
             // MecanicoFechas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -276,6 +267,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Fec_Mant_Fin;
         private System.Windows.Forms.DataGridViewTextBoxColumn idVehiculo;
         private System.Windows.Forms.DataGridViewTextBoxColumn TipoUnidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nom_mec;
     }
 }

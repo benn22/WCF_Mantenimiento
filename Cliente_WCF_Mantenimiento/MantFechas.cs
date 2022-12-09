@@ -14,5 +14,10 @@ namespace Cliente_WCF_Mantenimiento
         {
             InitializeComponent();
         }
+
+        private void dtgVendedor_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

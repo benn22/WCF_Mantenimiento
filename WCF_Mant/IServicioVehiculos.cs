@@ -12,7 +12,10 @@ namespace WCF_Mant
     public interface IServicioVehiculos
     {
         [OperationContract]
-        List<VehiculoDC> ListarVehiculosFechas(String strVehiculo, DateTime fecini, DateTime fecfin);      
+        List<VehiculoDC> ListarVehiculosFechas(String strVehiculo, DateTime fecini, DateTime fecfin);
+
+        [OperationContract]
+        VehiculoDC ConsultarVehiculos(String strVehiculo);
     }
 
     [DataContract]
@@ -44,7 +47,9 @@ namespace WCF_Mant
         public String idMarca { get; set; }
         [DataMember]
         public Single Tipo_Unidad{ get; set; }
-        
+        [DataMember]
+        public String modelo { get; set; }
+
         [DataMember]
         public String  TipoUnidad { get; set; }
         [DataMember]

@@ -10,7 +10,7 @@ namespace WCF_Mant
     // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de clase "ServicioVehiculos" en el código y en el archivo de configuración a la vez.
     public class ServicioVehiculos : IServicioVehiculos
     {
-        
+        MANTENIMIENTO mant = new MANTENIMIENTO();
         public List<VehiculoDC> ListarVehiculosFechas(String strVehiculo, DateTime fecini, DateTime fecfin)
         {
             MANTENIMIENTO mant = new MANTENIMIENTO();
@@ -49,6 +49,30 @@ namespace WCF_Mant
                 throw new Exception(ex.Message);
             }
             
+        }
+
+        public VehiculoDC ConsultarVehiculos(String strCodigo)
+        {
+            try
+            {
+                Tb_Vehiculo objVehiculo = (from objVeh in mant.Tb_Vehiculo
+                                           where objVeh.idVehiculo == strCodigo
+                                           select objVeh).FirstOrDefault();
+
+                VehiculoDC objVehiculoDC = new VehiculoDC();
+
+                objVehiculoDC.idMarca = objVehiculo.idMarca;
+                objVehiculoDC.Tipo_Unidad = Convert.ToSingle(objVehiculo.Tipo_Unidad);
+                objVehiculoDC.Tipo_Trans = Convert.ToSingle(objVehiculo.Tipo_Trans);
+                objVehiculoDC.modelo = objVehiculo.Modelo_Vehiculo;
+
+                return objVehiculoDC;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
         }
     }
 }
