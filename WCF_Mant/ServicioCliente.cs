@@ -112,9 +112,6 @@ namespace WCF_Mant
                     objClienteDC.Dni_Cli = resultado.Dni_Cli;
                     objClienteDC.EstadoCliente = resultado.EstadoCliente;
                     objClienteDC.Est_Cli = Convert.ToSingle(resultado.Est_Cli);
-
-
-
                     objList.Add(objClienteDC);
 
                 }

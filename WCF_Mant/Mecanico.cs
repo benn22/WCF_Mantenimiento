@@ -189,8 +189,7 @@ namespace WCF_Mant
                 catch (EntityException ex)
                 {
                     throw new Exception(ex.Message);
-                }
-            
+                }            
         }
     }
 }

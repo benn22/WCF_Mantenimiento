@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="ServicioEstadistica" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/WCF_Mant" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServicioEstadistica_RankingClientesAño_InputMessage">
+    <wsdl:part name="parameters" element="tns:RankingClientesAño" />
+  </wsdl:message>
+  <wsdl:message name="IServicioEstadistica_RankingClientesAño_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RankingClientesAñoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioEstadistica_RankingMecanicoMantAño_InputMessage">
+    <wsdl:part name="parameters" element="tns:RankingMecanicoMantAño" />
+  </wsdl:message>
+  <wsdl:message name="IServicioEstadistica_RankingMecanicoMantAño_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RankingMecanicoMantAñoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioEstadistica_RankingVehiculoMantAño_InputMessage">
+    <wsdl:part name="parameters" element="tns:RankingVehiculoMantAño" />
+  </wsdl:message>
+  <wsdl:message name="IServicioEstadistica_RankingVehiculoMantAño_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RankingVehiculoMantAñoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IServicioEstadistica">
+    <wsdl:operation name="RankingClientesAño">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioEstadistica/RankingClientesAño" message="tns:IServicioEstadistica_RankingClientesAño_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioEstadistica/RankingClientesAñoResponse" message="tns:IServicioEstadistica_RankingClientesAño_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RankingMecanicoMantAño">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioEstadistica/RankingMecanicoMantAño" message="tns:IServicioEstadistica_RankingMecanicoMantAño_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioEstadistica/RankingMecanicoMantAñoResponse" message="tns:IServicioEstadistica_RankingMecanicoMantAño_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RankingVehiculoMantAño">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioEstadistica/RankingVehiculoMantAño" message="tns:IServicioEstadistica_RankingVehiculoMantAño_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioEstadistica/RankingVehiculoMantAñoResponse" message="tns:IServicioEstadistica_RankingVehiculoMantAño_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IServicioEstadistica" type="tns:IServicioEstadistica">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RankingClientesAño">
+      <soap:operation soapAction="http://tempuri.org/IServicioEstadistica/RankingClientesAño" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RankingMecanicoMantAño">
+      <soap:operation soapAction="http://tempuri.org/IServicioEstadistica/RankingMecanicoMantAño" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RankingVehiculoMantAño">
+      <soap:operation soapAction="http://tempuri.org/IServicioEstadistica/RankingVehiculoMantAño" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicioEstadistica">
+    <wsdl:port name="BasicHttpBinding_IServicioEstadistica" binding="tns:BasicHttpBinding_IServicioEstadistica">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/WCF_Mant/ServicioEstadistica/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

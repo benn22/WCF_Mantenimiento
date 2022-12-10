@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WCF_Mant" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WCF_Mant" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfMecanicoFecDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MecanicoFecDC" nillable="true" type="tns:MecanicoFecDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMecanicoFecDC" nillable="true" type="tns:ArrayOfMecanicoFecDC" />
+  <xs:complexType name="MecanicoFecDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Ape_cli" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ape_mec" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Est_Mec" type="xs:float" />
+      <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Fec_Mant_Fin" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Fec_Mant_Inic" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Fech_Ingreso" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Nom_cli" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nom_mec" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Raz_soc_cli" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ruc_Cli" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TipoUnidad" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tipo_unidad" type="xs:float" />
+      <xs:element minOccurs="0" name="idMantenimiento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="idMecanico" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="idVehiculo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MecanicoFecDC" nillable="true" type="tns:MecanicoFecDC" />
+  <xs:complexType name="ArrayOfMecanicoDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MecanicoDC" nillable="true" type="tns:MecanicoDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMecanicoDC" nillable="true" type="tns:ArrayOfMecanicoDC" />
+  <xs:complexType name="MecanicoDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Ape_mec" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Centro_Estudios" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Correo_Mec" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Doc_Iden" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Espe_Mec" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Est_Mec" type="xs:float" />
+      <xs:element minOccurs="0" name="Estado" type="xs:float" />
+      <xs:element minOccurs="0" name="Fech_Ingreso" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Fech_Nac" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Fech_Registro" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Fech_Ult_Mod" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Nom_mec" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sexo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Telf_Mec" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Usu_Registro" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Usu_Ult_Mod" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cod_ubigeo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dir_mecanico" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="idMecanico" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MecanicoDC" nillable="true" type="tns:MecanicoDC" />
+</xs:schema>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WCF_Mant" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WCF_Mant" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfMantDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MantDC" nillable="true" type="tns:MantDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMantDC" nillable="true" type="tns:ArrayOfMantDC" />
+  <xs:complexType name="MantDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Ape_cli" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Dni_Cli" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Est_fac" type="xs:float" />
+      <xs:element minOccurs="0" name="EstadoFactura" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Fec_can" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Nom_cli" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Num_Factura" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Raz_soc_cli" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ruc_Cli" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fec_fac" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="idMantenimiento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="idVehiculo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MantDC" nillable="true" type="tns:MantDC" />
+</xs:schema>

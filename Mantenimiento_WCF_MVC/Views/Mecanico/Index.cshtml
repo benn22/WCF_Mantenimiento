@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<body>
+    <h3>LISTADO DE CLIENTES - WCF SERVICIO CLIENTES</h3>
+    <table class="table">
+        <tr>
+            <th>IdMecanico</th>
+            <th>DNI</th>
+            <th>Apellidos</th>
+            <th>Nombres</th>
+            <th>Direccion</th>
+            <th>Fec. Ingreso</th>
+            <th>Telefono</th>            
+            <th>Sexo</th>
+        </tr>
+        @foreach (var mecanico in ViewBag.ListarMecanicos)
+        {
+            <tr>
+                <th>@mecanico.idMecanico</th>
+                <th>@mecanico.Doc_Iden</th>
+                <th>@mecanico.Ape_mec</th>
+                <th>@mecanico.Nom_mec</th>
+                <th>@mecanico.dir_mecanico</th>
+                <th>@mecanico.Fech_Ingreso</th>
+                <th>@mecanico.Telf_Mec</th>                
+                <th>@mecanico.Sexo</th>
+            </tr>
+        }
+    </table>
+</body>
+</html>
