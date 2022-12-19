@@ -517,8 +517,11 @@ advertencia 6002: La tabla o vista 'MANTENIMIENTO.dbo.Tb_Vehiculo_Aud' no tiene 
           <Parameter Name="usu_registro" Type="varchar" Mode="In" />
           <Parameter Name="est_mec" Type="int" Mode="In" />
         </Function>
+        <Function Name="usp_ListarClienteBox" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="usp_ListarClienteGrilla" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="usp_ListarMecanico" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_ListarMecanicoBox" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_ListarMecanicoGrilla" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="usp_MantFechas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="vFec_Inicio" Type="datetime" Mode="In" />
           <Parameter Name="vFec_Fin" Type="datetime" Mode="In" />
@@ -536,6 +539,14 @@ advertencia 6002: La tabla o vista 'MANTENIMIENTO.dbo.Tb_Vehiculo_Aud' no tiene 
         </Function>
         <Function Name="usp_RankingVehiculosMantAños" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="año" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_Ubigeo_Departamentos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_Ubigeo_DistritosProvinciaDepartamento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdDepartamento" Type="char" Mode="In" />
+          <Parameter Name="IdProvincia" Type="char" Mode="In" />
+        </Function>
+        <Function Name="usp_Ubigeo_ProvinciasDepartamento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdDepartamento" Type="char" Mode="In" />
         </Function>
         <Function Name="usp_VehiculoFechas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idVehiculo" Type="varchar" Mode="In" />
@@ -739,6 +750,7 @@ advertencia 6002: La tabla o vista 'MANTENIMIENTO.dbo.Tb_Vehiculo_Aud' no tiene 
           </Key>
           <Property Name="Num_Factura" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="idAct_Man" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Costo_Man" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
         </EntityType>
         <EntityType Name="Tb_Factura">
           <Key>
@@ -1322,6 +1334,20 @@ advertencia 6002: La tabla o vista 'MANTENIMIENTO.dbo.Tb_Vehiculo_Aud' no tiene 
             <Parameter Name="est_mec" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_ListarMecanico" ReturnType="Collection(MANTENIMIENTOModel.usp_ListarMecanico_Result)" />
+          <FunctionImport Name="usp_ResumenAtencionesYear" ReturnType="Collection(MANTENIMIENTOModel.usp_ResumenAtencionesYear_Result)">
+          <Parameter Name="Year" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ListarMecanicoGrilla" ReturnType="Collection(MANTENIMIENTOModel.usp_ListarMecanicoGrilla_Result)" />
+          <FunctionImport Name="usp_ListarClienteBox" ReturnType="Collection(MANTENIMIENTOModel.usp_ListarClienteBox_Result)" />
+          <FunctionImport Name="usp_Ubigeo_Departamentos" ReturnType="Collection(MANTENIMIENTOModel.usp_Ubigeo_Departamentos_Result)" />
+          <FunctionImport Name="usp_Ubigeo_DistritosProvinciaDepartamento" ReturnType="Collection(MANTENIMIENTOModel.usp_Ubigeo_DistritosProvinciaDepartamento_Result)">
+            <Parameter Name="IdDepartamento" Mode="In" Type="String" />
+            <Parameter Name="IdProvincia" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_Ubigeo_ProvinciasDepartamento" ReturnType="Collection(MANTENIMIENTOModel.usp_Ubigeo_ProvinciasDepartamento_Result)">
+          <Parameter Name="IdDepartamento" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ListarMecanicoBox" ReturnType="Collection(MANTENIMIENTOModel.usp_ListarMecanicoBox_Result)" />
         </EntityContainer>
         <ComplexType Name="usp_ClientesFechas_Result">
           <Property Type="String" Name="idCliente" Nullable="false" MaxLength="6" />
@@ -1448,6 +1474,76 @@ advertencia 6002: La tabla o vista 'MANTENIMIENTO.dbo.Tb_Vehiculo_Aud' no tiene 
           <Property Type="String" Name="IdDepa" Nullable="true" MaxLength="255" />
           <Property Type="String" Name="IdProv" Nullable="true" MaxLength="255" />
           <Property Type="String" Name="IdDist" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Departamento" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Provincia" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Distrito" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="usp_ResumenAtencionesYear_Result">
+          <Property Type="String" Name="idMecanico" Nullable="false" MaxLength="4" />
+          <Property Type="String" Name="NombreCompleto" Nullable="true" MaxLength="72" />
+          <Property Type="String" Name="idVehiculo" Nullable="false" MaxLength="7" />
+          <Property Type="Int32" Name="tipo_mantenimiento" Nullable="false" />
+          <Property Type="String" Name="Mantenimiento" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Nombre_Man" Nullable="false" MaxLength="70" />
+          <Property Type="Int32" Name="Estado_Man" Nullable="false" />
+          <Property Type="String" Name="Estado" Nullable="true" MaxLength="9" />
+          <Property Type="Decimal" Name="Costo_Man" Nullable="false" Precision="19" />
+          <Property Type="DateTime" Name="Fecha" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_ListarMecanicoGrilla_Result">
+          <Property Type="String" Name="idMecanico" Nullable="false" MaxLength="4" />
+          <Property Type="String" Name="Nom_mec" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Ape_mec" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NombreCompleto" Nullable="true" MaxLength="71" />
+          <Property Type="String" Name="Doc_Iden" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="dir_mecanico" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="Fech_Ingreso" Nullable="true" />
+          <Property Type="String" Name="Telf_Mec" Nullable="true" MaxLength="9" />
+          <Property Type="DateTime" Name="Fec_Nac" Nullable="true" />
+          <Property Type="String" Name="Sexo" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="Espe_Mec" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="centro_estudios" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="correo_mec" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="Est_Mec" Nullable="true" />
+          <Property Type="String" Name="Estado" Nullable="true" MaxLength="8" />
+          <Property Type="String" Name="cod_ubigeo" Nullable="false" MaxLength="6" />
+          <Property Type="String" Name="Departamento" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Provincia" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Distrito" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="usp_ListarClienteBox_Result">
+          <Property Type="String" Name="idCliente" Nullable="false" MaxLength="6" />
+          <Property Type="String" Name="ApellNombres" Nullable="true" MaxLength="71" />
+        </ComplexType>
+        <ComplexType Name="usp_Ubigeo_Departamentos_Result">
+          <Property Type="String" Name="IDDEPA" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="DEPARTAMENTO" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="usp_Ubigeo_DistritosProvinciaDepartamento_Result">
+          <Property Type="String" Name="IDDIST" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="DISTRITO" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="usp_Ubigeo_ProvinciasDepartamento_Result">
+          <Property Type="String" Name="IDPROV" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="PROVINCIA" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="usp_ListarMecanicoBox_Result">
+          <Property Type="String" Name="idMecanico" Nullable="false" MaxLength="4" />
+          <Property Type="String" Name="Nom_mec" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Ape_mec" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NombreCompleto" Nullable="true" MaxLength="71" />
+          <Property Type="String" Name="Doc_Iden" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="dir_mecanico" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="Fech_Ingreso" Nullable="true" />
+          <Property Type="String" Name="Telf_Mec" Nullable="true" MaxLength="9" />
+          <Property Type="DateTime" Name="Fec_Nac" Nullable="true" />
+          <Property Type="String" Name="Sexo" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="Espe_Mec" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="centro_estudios" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="correo_mec" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="Est_Mec" Nullable="true" />
+          <Property Type="String" Name="Estado" Nullable="true" MaxLength="8" />
+          <Property Type="String" Name="cod_ubigeo" Nullable="false" MaxLength="6" />
           <Property Type="String" Name="Departamento" Nullable="true" MaxLength="255" />
           <Property Type="String" Name="Provincia" Nullable="true" MaxLength="255" />
           <Property Type="String" Name="Distrito" Nullable="true" MaxLength="255" />
@@ -1909,6 +2005,88 @@ advertencia 6002: La tabla o vista 'MANTENIMIENTO.dbo.Tb_Vehiculo_Aud' no tiene 
                 <ScalarProperty Name="IdDepa" ColumnName="IdDepa" />
                 <ScalarProperty Name="IdProv" ColumnName="IdProv" />
                 <ScalarProperty Name="IdDist" ColumnName="IdDist" />
+                <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+                <ScalarProperty Name="Provincia" ColumnName="Provincia" />
+                <ScalarProperty Name="Distrito" ColumnName="Distrito" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListarMecanicoGrilla" FunctionName="MANTENIMIENTOModel.Store.usp_ListarMecanicoGrilla">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MANTENIMIENTOModel.usp_ListarMecanicoGrilla_Result">
+                <ScalarProperty Name="idMecanico" ColumnName="idMecanico" />
+                <ScalarProperty Name="Nom_mec" ColumnName="Nom_mec" />
+                <ScalarProperty Name="Ape_mec" ColumnName="Ape_mec" />
+                <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+                <ScalarProperty Name="Doc_Iden" ColumnName="Doc_Iden" />
+                <ScalarProperty Name="dir_mecanico" ColumnName="dir_mecanico" />
+                <ScalarProperty Name="Fech_Ingreso" ColumnName="Fech_Ingreso" />
+                <ScalarProperty Name="Telf_Mec" ColumnName="Telf_Mec" />
+                <ScalarProperty Name="Fec_Nac" ColumnName="Fec_Nac" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="Espe_Mec" ColumnName="Espe_Mec" />
+                <ScalarProperty Name="centro_estudios" ColumnName="centro_estudios" />
+                <ScalarProperty Name="correo_mec" ColumnName="correo_mec" />
+                <ScalarProperty Name="Est_Mec" ColumnName="Est_Mec" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="cod_ubigeo" ColumnName="cod_ubigeo" />
+                <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+                <ScalarProperty Name="Provincia" ColumnName="Provincia" />
+                <ScalarProperty Name="Distrito" ColumnName="Distrito" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListarClienteBox" FunctionName="MANTENIMIENTOModel.Store.usp_ListarClienteBox">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MANTENIMIENTOModel.usp_ListarClienteBox_Result">
+                <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+                <ScalarProperty Name="ApellNombres" ColumnName="ApellNombres" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_Ubigeo_Departamentos" FunctionName="MANTENIMIENTOModel.Store.usp_Ubigeo_Departamentos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MANTENIMIENTOModel.usp_Ubigeo_Departamentos_Result">
+                <ScalarProperty Name="IDDEPA" ColumnName="IDDEPA" />
+                <ScalarProperty Name="DEPARTAMENTO" ColumnName="DEPARTAMENTO" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_Ubigeo_DistritosProvinciaDepartamento" FunctionName="MANTENIMIENTOModel.Store.usp_Ubigeo_DistritosProvinciaDepartamento">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MANTENIMIENTOModel.usp_Ubigeo_DistritosProvinciaDepartamento_Result">
+                <ScalarProperty Name="IDDIST" ColumnName="IDDIST" />
+                <ScalarProperty Name="DISTRITO" ColumnName="DISTRITO" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_Ubigeo_ProvinciasDepartamento" FunctionName="MANTENIMIENTOModel.Store.usp_Ubigeo_ProvinciasDepartamento">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MANTENIMIENTOModel.usp_Ubigeo_ProvinciasDepartamento_Result">
+                <ScalarProperty Name="IDPROV" ColumnName="IDPROV" />
+                <ScalarProperty Name="PROVINCIA" ColumnName="PROVINCIA" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListarMecanicoBox" FunctionName="MANTENIMIENTOModel.Store.usp_ListarMecanicoBox">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MANTENIMIENTOModel.usp_ListarMecanicoBox_Result">
+                <ScalarProperty Name="idMecanico" ColumnName="idMecanico" />
+                <ScalarProperty Name="Nom_mec" ColumnName="Nom_mec" />
+                <ScalarProperty Name="Ape_mec" ColumnName="Ape_mec" />
+                <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+                <ScalarProperty Name="Doc_Iden" ColumnName="Doc_Iden" />
+                <ScalarProperty Name="dir_mecanico" ColumnName="dir_mecanico" />
+                <ScalarProperty Name="Fech_Ingreso" ColumnName="Fech_Ingreso" />
+                <ScalarProperty Name="Telf_Mec" ColumnName="Telf_Mec" />
+                <ScalarProperty Name="Fec_Nac" ColumnName="Fec_Nac" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="Espe_Mec" ColumnName="Espe_Mec" />
+                <ScalarProperty Name="centro_estudios" ColumnName="centro_estudios" />
+                <ScalarProperty Name="correo_mec" ColumnName="correo_mec" />
+                <ScalarProperty Name="Est_Mec" ColumnName="Est_Mec" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="cod_ubigeo" ColumnName="cod_ubigeo" />
                 <ScalarProperty Name="Departamento" ColumnName="Departamento" />
                 <ScalarProperty Name="Provincia" ColumnName="Provincia" />
                 <ScalarProperty Name="Distrito" ColumnName="Distrito" />

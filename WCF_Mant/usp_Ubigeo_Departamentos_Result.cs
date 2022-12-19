@@ -10,12 +10,10 @@
 namespace WCF_Mant
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Tb_DetalleFactura
+    public partial class usp_Ubigeo_Departamentos_Result
     {
-        public string Num_Factura { get; set; }
-        public string idAct_Man { get; set; }
-        public decimal Costo_Man { get; set; }
+        public string IDDEPA { get; set; }
+        public string DEPARTAMENTO { get; set; }
     }
 }

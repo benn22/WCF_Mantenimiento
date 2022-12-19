@@ -17,7 +17,7 @@ namespace Cliente_WCF_Mantenimiento
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new VehiculoFechas());
+            Application.Run(new MDIform());
         }
     }
 }

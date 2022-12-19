@@ -35,16 +35,41 @@ namespace WCF_Mant
                     objMantDC.Raz_soc_cli= resultado.Raz_soc_cli;
                     list.Add(objMantDC);
                 }
-
-
                 return list;
             }
             catch (Exception ex )
             {
+                throw new Exception(ex.Message);
+            }            
+        }
 
+        public List<MantYearDC> ListarMantenimientoYear(Int16 Year)
+        {
+            try
+            {
+                List<MantYearDC> list = new List<MantYearDC>();
+                var query = Mant.usp_ResumenAtencionesYear(Year);
+                foreach (var resultado in query)
+                {
+                    MantYearDC objMantYearDC = new MantYearDC();                    
+                    objMantYearDC.idMecanico = resultado.idMecanico;
+                    objMantYearDC.NombreCompleto = resultado.NombreCompleto;
+                    objMantYearDC.idVehiculo = resultado.idVehiculo;
+                    objMantYearDC.tipo_mantenimiento = Convert.ToInt16(resultado.tipo_mantenimiento);
+                    objMantYearDC.Mantenimiento = resultado.Mantenimiento;
+                    objMantYearDC.Nombre_Man = resultado.Nombre_Man;
+                    objMantYearDC.Estado_Man = Convert.ToInt16(resultado.Estado_Man);
+                    objMantYearDC.Estado = resultado.Estado;
+                    objMantYearDC.Costo_Man = Convert.ToSingle(resultado.Costo_Man);
+                    objMantYearDC.Fecha = Convert.ToDateTime(resultado.Fecha);
+                    list.Add(objMantYearDC);
+                }
+                return list;
+            }
+            catch (Exception ex)
+            {
                 throw new Exception(ex.Message);
             }
-            
         }
     }
 }

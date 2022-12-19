@@ -275,9 +275,9 @@ namespace ProxyMecanico
         
         private string Espe_MecField;
         
-        private float Est_MecField;
+        private short Est_MecField;
         
-        private float EstadoField;
+        private string EstadoField;
         
         private System.DateTime Fech_IngresoField;
         
@@ -369,7 +369,7 @@ namespace ProxyMecanico
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public float Est_Mec
+        public short Est_Mec
         {
             get
             {
@@ -382,7 +382,7 @@ namespace ProxyMecanico
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public float Estado
+        public string Estado
         {
             get
             {

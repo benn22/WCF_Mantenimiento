@@ -199,6 +199,163 @@ namespace ProxyMant
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MantYearDC", Namespace="http://schemas.datacontract.org/2004/07/WCF_Mant")]
+    public partial class MantYearDC : object
+    {
+        
+        private float Costo_ManField;
+        
+        private string EstadoField;
+        
+        private short Estado_ManField;
+        
+        private System.DateTime FechaField;
+        
+        private string MantenimientoField;
+        
+        private string NombreCompletoField;
+        
+        private string Nombre_ManField;
+        
+        private string idMecanicoField;
+        
+        private string idVehiculoField;
+        
+        private short tipo_mantenimientoField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public float Costo_Man
+        {
+            get
+            {
+                return this.Costo_ManField;
+            }
+            set
+            {
+                this.Costo_ManField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Estado
+        {
+            get
+            {
+                return this.EstadoField;
+            }
+            set
+            {
+                this.EstadoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public short Estado_Man
+        {
+            get
+            {
+                return this.Estado_ManField;
+            }
+            set
+            {
+                this.Estado_ManField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime Fecha
+        {
+            get
+            {
+                return this.FechaField;
+            }
+            set
+            {
+                this.FechaField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Mantenimiento
+        {
+            get
+            {
+                return this.MantenimientoField;
+            }
+            set
+            {
+                this.MantenimientoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NombreCompleto
+        {
+            get
+            {
+                return this.NombreCompletoField;
+            }
+            set
+            {
+                this.NombreCompletoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Nombre_Man
+        {
+            get
+            {
+                return this.Nombre_ManField;
+            }
+            set
+            {
+                this.Nombre_ManField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string idMecanico
+        {
+            get
+            {
+                return this.idMecanicoField;
+            }
+            set
+            {
+                this.idMecanicoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string idVehiculo
+        {
+            get
+            {
+                return this.idVehiculoField;
+            }
+            set
+            {
+                this.idVehiculoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public short tipo_mantenimiento
+        {
+            get
+            {
+                return this.tipo_mantenimientoField;
+            }
+            set
+            {
+                this.tipo_mantenimientoField = value;
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ProxyMant.IMantenimiento")]
     public interface IMantenimiento
@@ -209,6 +366,12 @@ namespace ProxyMant
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMantenimiento/ListarMantenimientoFechas", ReplyAction="http://tempuri.org/IMantenimiento/ListarMantenimientoFechasResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<ProxyMant.MantDC>> ListarMantenimientoFechasAsync(System.DateTime fecini, System.DateTime fecfin);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMantenimiento/ListarMantenimientoYear", ReplyAction="http://tempuri.org/IMantenimiento/ListarMantenimientoYearResponse")]
+        System.Collections.Generic.List<ProxyMant.MantYearDC> ListarMantenimientoYear(short Year);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMantenimiento/ListarMantenimientoYear", ReplyAction="http://tempuri.org/IMantenimiento/ListarMantenimientoYearResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ProxyMant.MantYearDC>> ListarMantenimientoYearAsync(short Year);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
@@ -269,6 +432,16 @@ namespace ProxyMant
         public System.Threading.Tasks.Task<System.Collections.Generic.List<ProxyMant.MantDC>> ListarMantenimientoFechasAsync(System.DateTime fecini, System.DateTime fecfin)
         {
             return base.Channel.ListarMantenimientoFechasAsync(fecini, fecfin);
+        }
+        
+        public System.Collections.Generic.List<ProxyMant.MantYearDC> ListarMantenimientoYear(short Year)
+        {
+            return base.Channel.ListarMantenimientoYear(Year);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ProxyMant.MantYearDC>> ListarMantenimientoYearAsync(short Year)
+        {
+            return base.Channel.ListarMantenimientoYearAsync(Year);
         }
         
         public virtual System.Threading.Tasks.Task OpenAsync()

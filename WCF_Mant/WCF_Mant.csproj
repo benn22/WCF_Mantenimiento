@@ -59,6 +59,7 @@
     <Compile Include="IService1.cs" />
     <Compile Include="IServicioCliente.cs" />
     <Compile Include="IServicioEstadistica.cs" />
+    <Compile Include="IServicioUbigeo.cs" />
     <Compile Include="IServicioVehiculos.cs" />
     <Compile Include="Mantenimiento.cs" />
     <Compile Include="Mecanico.cs" />
@@ -81,6 +82,7 @@
     <Compile Include="Service1.cs" />
     <Compile Include="ServicioCliente.cs" />
     <Compile Include="ServicioEstadistica.cs" />
+    <Compile Include="ServicioUbigeo.cs" />
     <Compile Include="ServicioVehiculos.cs" />
     <Compile Include="Tb_Act_Man.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -139,7 +141,16 @@
     <Compile Include="usp_ClientesFechas_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="usp_ListarClienteBox_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="usp_ListarClienteGrilla_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ListarMecanicoBox_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ListarMecanicoGrilla_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="usp_ListarMecanico_Result.cs">
@@ -158,6 +169,18 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="usp_RankingVehiculosMantAños_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ResumenAtencionesYear_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_Ubigeo_Departamentos_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_Ubigeo_DistritosProvinciaDepartamento_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_Ubigeo_ProvinciasDepartamento_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="usp_VehiculoFechas_Result.cs">

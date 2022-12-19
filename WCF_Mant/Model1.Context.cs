@@ -408,5 +408,56 @@ namespace WCF_Mant
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ListarMecanico_Result>("usp_ListarMecanico");
         }
+    
+        public virtual ObjectResult<usp_ResumenAtencionesYear_Result> usp_ResumenAtencionesYear(Nullable<int> year)
+        {
+            var yearParameter = year.HasValue ?
+                new ObjectParameter("Year", year) :
+                new ObjectParameter("Year", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ResumenAtencionesYear_Result>("usp_ResumenAtencionesYear", yearParameter);
+        }
+    
+        public virtual ObjectResult<usp_ListarMecanicoGrilla_Result> usp_ListarMecanicoGrilla()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ListarMecanicoGrilla_Result>("usp_ListarMecanicoGrilla");
+        }
+    
+        public virtual ObjectResult<usp_ListarClienteBox_Result> usp_ListarClienteBox()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ListarClienteBox_Result>("usp_ListarClienteBox");
+        }
+    
+        public virtual ObjectResult<usp_Ubigeo_Departamentos_Result> usp_Ubigeo_Departamentos()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_Ubigeo_Departamentos_Result>("usp_Ubigeo_Departamentos");
+        }
+    
+        public virtual ObjectResult<usp_Ubigeo_DistritosProvinciaDepartamento_Result> usp_Ubigeo_DistritosProvinciaDepartamento(string idDepartamento, string idProvincia)
+        {
+            var idDepartamentoParameter = idDepartamento != null ?
+                new ObjectParameter("IdDepartamento", idDepartamento) :
+                new ObjectParameter("IdDepartamento", typeof(string));
+    
+            var idProvinciaParameter = idProvincia != null ?
+                new ObjectParameter("IdProvincia", idProvincia) :
+                new ObjectParameter("IdProvincia", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_Ubigeo_DistritosProvinciaDepartamento_Result>("usp_Ubigeo_DistritosProvinciaDepartamento", idDepartamentoParameter, idProvinciaParameter);
+        }
+    
+        public virtual ObjectResult<usp_Ubigeo_ProvinciasDepartamento_Result> usp_Ubigeo_ProvinciasDepartamento(string idDepartamento)
+        {
+            var idDepartamentoParameter = idDepartamento != null ?
+                new ObjectParameter("IdDepartamento", idDepartamento) :
+                new ObjectParameter("IdDepartamento", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_Ubigeo_ProvinciasDepartamento_Result>("usp_Ubigeo_ProvinciasDepartamento", idDepartamentoParameter);
+        }
+    
+        public virtual ObjectResult<usp_ListarMecanicoBox_Result> usp_ListarMecanicoBox()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ListarMecanicoBox_Result>("usp_ListarMecanicoBox");
+        }
     }
 }

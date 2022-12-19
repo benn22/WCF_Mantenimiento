@@ -10,12 +10,18 @@
 namespace WCF_Mant
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Tb_DetalleFactura
+    public partial class usp_ResumenAtencionesYear_Result
     {
-        public string Num_Factura { get; set; }
-        public string idAct_Man { get; set; }
+        public string idMecanico { get; set; }
+        public string NombreCompleto { get; set; }
+        public string idVehiculo { get; set; }
+        public int tipo_mantenimiento { get; set; }
+        public string Mantenimiento { get; set; }
+        public string Nombre_Man { get; set; }
+        public int Estado_Man { get; set; }
+        public string Estado { get; set; }
         public decimal Costo_Man { get; set; }
+        public Nullable<System.DateTime> Fecha { get; set; }
     }
 }

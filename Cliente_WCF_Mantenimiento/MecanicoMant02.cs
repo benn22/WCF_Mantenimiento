@@ -20,7 +20,16 @@ namespace Cliente_WCF_Mantenimiento
 
         private void MecanicoMant02_Load(object sender, EventArgs e)
         {
-
+            try
+            {
+                cboDepartamento.DisplayMember = "LIMA";
+                cboDistrito.DisplayMember = "LIMA";
+                cboProvincia.DisplayMember = "LA VICTORIA";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Se ha producido el error: " + ex.Message);
+            }
         }
 
         private void btnGrabar_Click(object sender, EventArgs e)
@@ -60,10 +69,11 @@ namespace Cliente_WCF_Mantenimiento
                 objMecanicoDC.Doc_Iden = mskDni.Text.Trim();
 
                 objMecanicoDC.Fech_Nac = Convert.ToDateTime(dtpNac.Text);
-
+                objMecanicoDC.Espe_Mec = txtEspecialidad.Text.Trim();
+                objMecanicoDC.Centro_Estudios = txtEstudios.Text.Trim();
                 objMecanicoDC.Fech_Ingreso = Convert.ToDateTime(dtpFecIng.Text);
                 //objClienteDC.cod_ubigeo = cboDepartamento.SelectedValue.ToString() + cboProvincia.SelectedValue.ToString() + cboDistrito.SelectedValue.ToString();
-                //objClienteDC.cod_ubigeo = "010101";
+                objMecanicoDC.cod_ubigeo = "010101";
                 objMecanicoDC.Est_Mec = Convert.ToInt16(chkEstado.Checked);
                 objMecanicoDC.Usu_Registro = "admin";
                 objMecanicoDC.Usu_Ult_Mod = "admin";

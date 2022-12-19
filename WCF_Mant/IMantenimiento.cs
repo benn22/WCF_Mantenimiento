@@ -13,6 +13,8 @@ namespace WCF_Mant
     {
         [OperationContract]        
         List<MantDC> ListarMantenimientoFechas(DateTime fecini, DateTime fecfin);
+        [OperationContract]
+        List<MantYearDC> ListarMantenimientoYear(Int16 Year);
     }
 
     [DataContract]
@@ -45,5 +47,31 @@ namespace WCF_Mant
         [DataMember]
         public String Raz_soc_cli { get; set; }
         
+    }
+
+    [DataContract]
+    [Serializable]
+    public class MantYearDC
+    {
+        [DataMember]
+        public String idMecanico { get; set; }
+        [DataMember]
+        public String NombreCompleto { get; set; }
+        [DataMember]
+        public String idVehiculo { get; set; }
+        [DataMember]
+        public Int16 tipo_mantenimiento { get; set; }
+        [DataMember]
+        public String Mantenimiento { get; set; }
+        [DataMember]
+        public String Nombre_Man { get; set; }
+        [DataMember]
+        public Int16 Estado_Man { get; set; }
+        [DataMember]
+        public String Estado { get; set; }
+        [DataMember]
+        public Single Costo_Man { get; set; }
+        [DataMember]
+        public DateTime Fecha { get; set; }
     }
 }

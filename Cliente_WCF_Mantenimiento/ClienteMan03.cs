@@ -12,6 +12,8 @@ namespace Cliente_WCF_Mantenimiento
     {
         ProxyCliente.ServicioClienteClient objServiceCliente = new ProxyCliente.ServicioClienteClient();
         ProxyCliente.ClienteDC objClienteDC = new ProxyCliente.ClienteDC();
+        ProxyUbigeo.ServicioUbigeoClient objServiceUbigeo = new ProxyUbigeo.ServicioUbigeoClient();
+        //ProxyUbigeo.UbigeoDC objUbigeoDC = new ProxyUbigeo.UbigeoDC();  
         public ClienteMan03()
         {
             InitializeComponent();
@@ -51,6 +53,8 @@ namespace Cliente_WCF_Mantenimiento
                 }
                 dtpFecNac.Text = Convert.ToString(objClienteDC.Fec_Nac_Cli);
                 chkEstado.Checked = Convert.ToBoolean(objClienteDC.Est_Cli);
+                String id_ubigeo = objClienteDC.cod_ubigeo;
+                CargarUbigeo(id_ubigeo.Substring(0, 2), id_ubigeo.Substring(2, 2), id_ubigeo.Substring(4, 2));
             }
             catch (Exception ex)
             {
@@ -62,7 +66,25 @@ namespace Cliente_WCF_Mantenimiento
         {
             this.Close();
         }
+        
+        private void CargarUbigeo(String IdDepa, String IdProv, String IdDist)
+        {
+            cboDepartamento.DataSource = objServiceUbigeo.ListarUbigeo_Departamento();
+            cboDepartamento.ValueMember = "IdDepa";
+            cboDepartamento.DisplayMember = "Departamento";
+            cboDepartamento.SelectedValue = IdDepa;
 
+            cboProvincia.DataSource = objServiceUbigeo.ListarUbigeo_ProvinciasDepartamento(IdDepa);
+            cboProvincia.ValueMember = "IdProv";
+            cboProvincia.DisplayMember = "Provincia";
+            cboProvincia.SelectedValue = IdProv;
+
+            cboDistrito.DataSource = objServiceUbigeo.ListarUbigeo_DistritoProvinciaDepartamento(IdDepa, IdProv);
+            cboDistrito.ValueMember = "IdDist";
+            cboDistrito.DisplayMember = "Distrito";
+            cboDistrito.SelectedValue = IdDist;
+        }
+        
         private void btnGrabar_Click(object sender, EventArgs e)
         {
             try
@@ -111,8 +133,8 @@ namespace Cliente_WCF_Mantenimiento
                 objClienteDC.Dni_Cli = mskDni.Text.Trim();
                 objClienteDC.Ruc_Cli = mskRuc.Text.Trim();
                 objClienteDC.Fec_Nac_Cli = Convert.ToDateTime(dtpFecNac.Text);
-                //objClienteDC.cod_ubigeo = cboDepartamento.SelectedValue.ToString() + cboProvincia.SelectedValue.ToString() + cboDistrito.SelectedValue.ToString();
-                objClienteDC.cod_ubigeo = "010101";
+                objClienteDC.cod_ubigeo = cboDepartamento.SelectedValue.ToString() + cboProvincia.SelectedValue.ToString() + cboDistrito.SelectedValue.ToString();
+                //objClienteDC.cod_ubigeo = "010101";
                 objClienteDC.Est_Cli = Convert.ToInt16(chkEstado.Checked);
                 objClienteDC.Usu_Registro = "admin";
                 objClienteDC.Usu_Ult_Mod = "admin";
@@ -129,6 +151,16 @@ namespace Cliente_WCF_Mantenimiento
             {
                 MessageBox.Show("Se ha producido el error: " + ex.Message);                
             }
-        }        
+        }
+        
+        private void cboDepartamento_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            CargarUbigeo(cboDepartamento.SelectedValue.ToString(), "01", "01");
+        }
+
+        private void cboProvincia_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            CargarUbigeo(cboDepartamento.SelectedValue.ToString(), cboProvincia.SelectedValue.ToString(), "01");
+        }
     }
 }

@@ -40,7 +40,7 @@ namespace WCF_Mant
 
                 return objClienteDC;
             }
-            catch (EntityException ex)
+            catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
@@ -85,8 +85,6 @@ namespace WCF_Mant
             }
             catch (Exception ex )
             {
-
-
                 throw new Exception(ex.Message);
             }
 
@@ -136,7 +134,6 @@ namespace WCF_Mant
                     objClienteDC.cod_ubigeo,objClienteDC.Nom_cli,objClienteDC.Ape_cli,objClienteDC.dir_cli,objClienteDC.Ruc_Cli,objClienteDC.Telf_Cli,Convert.ToDateTime(objClienteDC.Fec_Nac_Cli),objClienteDC.Correo_Cli,
                     objClienteDC.Sexo,objClienteDC.Dni_Cli,objClienteDC.Usu_Registro, Convert.ToInt16(objClienteDC.Est_Cli), Convert.ToInt16(objClienteDC.TipoCliente)
                   );
-
                 mant.SaveChanges();
                 return true;
             }
@@ -144,8 +141,6 @@ namespace WCF_Mant
             {
                 throw new Exception(ex.Message);
             }
-
-
         }
 
         public Boolean ActualizarCliente(ClienteDC objClienteDC)

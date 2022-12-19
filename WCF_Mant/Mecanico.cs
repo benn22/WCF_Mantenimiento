@@ -62,7 +62,7 @@ namespace WCF_Mant
             {
                 List<MecanicoDC> objList = new List<MecanicoDC>();
 
-                var query = mant.usp_ListarMecanico();
+                var query = mant.usp_ListarMecanicoBox();
 
                 foreach (var resultado in query)
                 {
@@ -76,7 +76,6 @@ namespace WCF_Mant
                     objMecanicoDC.Telf_Mec = resultado.Telf_Mec;
                     objMecanicoDC.Fech_Nac = Convert.ToDateTime(resultado.Fec_Nac);
                     objMecanicoDC.Sexo = resultado.Sexo;
-
 
                     objList.Add(objMecanicoDC);
 
@@ -102,18 +101,13 @@ namespace WCF_Mant
                     objMecanicoDC.cod_ubigeo, objMecanicoDC.Nom_mec, objMecanicoDC.Ape_mec, objMecanicoDC.Doc_Iden, objMecanicoDC.dir_mecanico, Convert.ToDateTime(objMecanicoDC.Fech_Ingreso), objMecanicoDC.Telf_Mec,
                     Convert.ToDateTime(objMecanicoDC.Fech_Nac),objMecanicoDC.Sexo, objMecanicoDC.Espe_Mec, objMecanicoDC.Centro_Estudios, objMecanicoDC.Correo_Mec, objMecanicoDC.Usu_Registro, Convert.ToInt16(objMecanicoDC.Est_Mec)
                   );
-
                 mant.SaveChanges();
                 return true;
             }
             catch (Exception ex)
             {
-
-
                 throw new Exception(ex.Message);
             }
-
-
         }
 
         public Boolean ActualizarMecanico(MecanicoDC objMecanicoDC)
@@ -167,7 +161,7 @@ namespace WCF_Mant
                     MecanicoDC objMecanicoDC = new MecanicoDC();
                     objMecanicoDC. idMecanico = objMecanico.idMecanico;
                     objMecanicoDC.cod_ubigeo = objMecanico.cod_ubigeo;
-                    objMecanicoDC.Est_Mec = Convert.ToSingle( objMecanico.Est_Mec);
+                    objMecanicoDC.Est_Mec = Convert.ToInt16( objMecanico.Est_Mec);
                     objMecanicoDC.Nom_mec = objMecanico.Nom_mec;
                     objMecanicoDC.Ape_mec = objMecanico.Ape_mec;
                     objMecanicoDC.Fech_Ingreso = Convert.ToDateTime(objMecanico.Fech_Ingreso);

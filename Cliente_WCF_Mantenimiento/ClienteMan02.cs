@@ -12,6 +12,7 @@ namespace Cliente_WCF_Mantenimiento
     {
         ProxyCliente.ServicioClienteClient objServiceCliente = new ProxyCliente.ServicioClienteClient();
         ProxyCliente.ClienteDC objClienteDC = new ProxyCliente.ClienteDC();
+        ProxyUbigeo.ServicioUbigeoClient objServiceUbigeo = new ProxyUbigeo.ServicioUbigeoClient();
         public ClienteMan02()
         {
             InitializeComponent();
@@ -21,9 +22,7 @@ namespace Cliente_WCF_Mantenimiento
         {
             try
             {
-                cboDepartamento.DisplayMember = "LIMA";
-                cboDistrito.DisplayMember = "LIMA";
-                cboProvincia.DisplayMember = "LA VICTORIA";
+                CargarUbigeo("01", "01", "01");
             }
             catch (Exception ex)
             {
@@ -79,8 +78,8 @@ namespace Cliente_WCF_Mantenimiento
                 objClienteDC.Dni_Cli = mskDni.Text.Trim();
                 objClienteDC.Ruc_Cli = mskRuc.Text.Trim();
                 objClienteDC.Fec_Nac_Cli = Convert.ToDateTime(dtpFecNac.Text);
-                //objClienteDC.cod_ubigeo = cboDepartamento.SelectedValue.ToString() + cboProvincia.SelectedValue.ToString() + cboDistrito.SelectedValue.ToString();
-                objClienteDC.cod_ubigeo = "010101";
+                objClienteDC.cod_ubigeo = cboDepartamento.SelectedValue.ToString() + cboProvincia.SelectedValue.ToString() + cboDistrito.SelectedValue.ToString();
+                //objClienteDC.cod_ubigeo = "010101";
                 objClienteDC.Est_Cli = Convert.ToInt16(chkEstado.Checked);
                 objClienteDC.Usu_Registro = "admin";
                 objClienteDC.Usu_Ult_Mod = "admin";                
@@ -102,6 +101,40 @@ namespace Cliente_WCF_Mantenimiento
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
-        }        
+        }
+
+        private void CargarUbigeo(String IdDepa, String IdProv, String IdDist)
+        {
+            cboDepartamento.DataSource = objServiceUbigeo.ListarUbigeo_Departamento();
+            cboDepartamento.ValueMember = "IdDepa";
+            cboDepartamento.DisplayMember = "Departamento";
+            cboDepartamento.SelectedValue = IdDepa;
+
+            cboProvincia.DataSource = objServiceUbigeo.ListarUbigeo_ProvinciasDepartamento(IdDepa);
+            cboProvincia.ValueMember = "IdProv";
+            cboProvincia.DisplayMember = "Provincia";
+            cboProvincia.SelectedValue = IdProv;
+
+            cboDistrito.DataSource = objServiceUbigeo.ListarUbigeo_DistritoProvinciaDepartamento(IdDepa, IdProv);
+            cboDistrito.ValueMember = "IdDist";
+            cboDistrito.DisplayMember = "Distrito";
+            cboDistrito.SelectedValue = IdDist;
+
+        }
+
+        private void cboDepartamento_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            CargarUbigeo(cboDepartamento.SelectedValue.ToString(),"01","01");
+        }
+
+        private void cboProvincia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cboProvincia_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            CargarUbigeo(cboDepartamento.SelectedValue.ToString(), cboProvincia.SelectedValue.ToString(), "01");
+        }
     }
 }

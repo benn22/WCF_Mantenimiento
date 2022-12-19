@@ -77,19 +77,15 @@ namespace WCF_Mant
     {
         [DataMember]
         public String idMecanico { get; set; }
-        [DataMember]
-        public Single Est_Mec { get; set; }
-        [DataMember]
-        public Single Estado { get; set; }
-        [DataMember]
-        public DateTime Fech_Ingreso { get; set; }
-        [DataMember]
-        public String Nom_mec { get; set; }
-        [DataMember]
-        public String Ape_mec { get; set; }
 
         [DataMember]
         public String cod_ubigeo { get; set; }
+
+        [DataMember]
+        public String Nom_mec { get; set; }
+
+        [DataMember]
+        public String Ape_mec { get; set; }
 
         [DataMember]
         public String Doc_Iden { get; set; }
@@ -98,7 +94,10 @@ namespace WCF_Mant
         public String dir_mecanico { get; set; }
 
         [DataMember]
-        public String Telf_Mec{ get; set; }
+        public DateTime Fech_Ingreso { get; set; }
+
+        [DataMember]
+        public String Telf_Mec { get; set; }
 
         [DataMember]
         public DateTime Fech_Nac { get; set; }
@@ -107,7 +106,7 @@ namespace WCF_Mant
         public String Sexo { get; set; }
 
         [DataMember]
-        public String Espe_Mec{ get; set; }
+        public String Espe_Mec { get; set; }
 
         [DataMember]
         public String Centro_Estudios { get; set; }
@@ -122,12 +121,15 @@ namespace WCF_Mant
         public String Usu_Registro { get; set; }
 
         [DataMember]
+        public Int16 Est_Mec { get; set; }
+
+        [DataMember]
+        public String Estado { get; set; }
+        
+        [DataMember]
         public DateTime Fech_Ult_Mod { get; set; }
 
         [DataMember]
         public String Usu_Ult_Mod { get; set; }
     }
-
 }
-
-
